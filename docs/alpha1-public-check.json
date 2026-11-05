@@ -1,0 +1,16 @@
+{
+  "/": 200,
+  "/health/ready": 200,
+  "/static/atlas.css": 200,
+  "/static/atlas.js": 200,
+  "/static/fonts/noto-serif.ttf": 200,
+  "chart_uk": 200,
+  "chart_en": 200,
+  "chart_ru": 200,
+  "admin_login": 200,
+  "source_archive": {
+    "files": 136,
+    "bytes": 1658348,
+    "secrets_excluded": true
+  }
+}
