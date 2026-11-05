@@ -1,0 +1,259 @@
+{
+  "source": "https://github.com/aloistr/swisseph/tree/v2.10.03",
+  "git_object": {
+    "sha": "175e1fcb3108bcd5c0d146c803f51dcf23508012",
+    "type": "commit",
+    "url": "https://api.github.com/repos/aloistr/swisseph/git/commits/175e1fcb3108bcd5c0d146c803f51dcf23508012"
+  },
+  "tool": "Official swetest.c compiled locally with Zig cc; Swiss Ephemeris 2.10.03",
+  "executable_sha256": "e7ac5430eb27acd9139128fbef61039ef43f0a9ed1cde8b9e140e4edbb3e755f",
+  "flags": "-eswe -p0123456789t -fPls -head; 12:00 UT",
+  "tolerance_degrees": 1e-06,
+  "independent_engine": false,
+  "cases": [
+    {
+      "date": "1900-01-01",
+      "utc_time": "12:00",
+      "positions": [
+        {
+          "name": "Sun",
+          "longitude": 280.6632882,
+          "speed": 1.0198555
+        },
+        {
+          "name": "Moon",
+          "longitude": 279.6163849,
+          "speed": 14.4736457
+        },
+        {
+          "name": "Mercury",
+          "longitude": 259.6393506,
+          "speed": 1.2896034
+        },
+        {
+          "name": "Venus",
+          "longitude": 306.9961525,
+          "speed": 1.2433435
+        },
+        {
+          "name": "Mars",
+          "longitude": 284.2530356,
+          "speed": 0.7707463
+        },
+        {
+          "name": "Jupiter",
+          "longitude": 241.2336136,
+          "speed": 0.195048
+        },
+        {
+          "name": "Saturn",
+          "longitude": 267.7749547,
+          "speed": 0.1162224
+        },
+        {
+          "name": "Uranus",
+          "longitude": 250.1669441,
+          "speed": 0.0551576
+        },
+        {
+          "name": "Neptune",
+          "longitude": 85.2051343,
+          "speed": -0.0271203
+        },
+        {
+          "name": "Pluto",
+          "longitude": 75.242841,
+          "speed": -0.0171855
+        },
+        {
+          "name": "true Node",
+          "longitude": 260.2584348,
+          "speed": -0.0244987
+        }
+      ]
+    },
+    {
+      "date": "1950-06-15",
+      "utc_time": "12:00",
+      "positions": [
+        {
+          "name": "Sun",
+          "longitude": 83.8098035,
+          "speed": 0.9553839
+        },
+        {
+          "name": "Moon",
+          "longitude": 81.9990969,
+          "speed": 12.1449512
+        },
+        {
+          "name": "Mercury",
+          "longitude": 61.0969689,
+          "speed": 1.2517563
+        },
+        {
+          "name": "Venus",
+          "longitude": 46.0409123,
+          "speed": 1.1623177
+        },
+        {
+          "name": "Mars",
+          "longitude": 181.3738878,
+          "speed": 0.3876692
+        },
+        {
+          "name": "Jupiter",
+          "longitude": 337.2401445,
+          "speed": 0.036758
+        },
+        {
+          "name": "Saturn",
+          "longitude": 163.4033991,
+          "speed": 0.0517589
+        },
+        {
+          "name": "Uranus",
+          "longitude": 94.4787485,
+          "speed": 0.0593448
+        },
+        {
+          "name": "Neptune",
+          "longitude": 194.6075113,
+          "speed": -0.0057331
+        },
+        {
+          "name": "Pluto",
+          "longitude": 136.2842864,
+          "speed": 0.020462
+        },
+        {
+          "name": "true Node",
+          "longitude": 3.9155405,
+          "speed": -0.2214838
+        }
+      ]
+    },
+    {
+      "date": "2000-01-01",
+      "utc_time": "12:00",
+      "positions": [
+        {
+          "name": "Sun",
+          "longitude": 280.3689187,
+          "speed": 1.0194342
+        },
+        {
+          "name": "Moon",
+          "longitude": 223.3237514,
+          "speed": 12.0213038
+        },
+        {
+          "name": "Mercury",
+          "longitude": 271.889277,
+          "speed": 1.5562581
+        },
+        {
+          "name": "Venus",
+          "longitude": 241.5657884,
+          "speed": 1.209043
+        },
+        {
+          "name": "Mars",
+          "longitude": 327.9633025,
+          "speed": 0.775674
+        },
+        {
+          "name": "Jupiter",
+          "longitude": 25.2530872,
+          "speed": 0.0407612
+        },
+        {
+          "name": "Saturn",
+          "longitude": 40.3956635,
+          "speed": -0.0199451
+        },
+        {
+          "name": "Uranus",
+          "longitude": 314.8091877,
+          "speed": 0.0503435
+        },
+        {
+          "name": "Neptune",
+          "longitude": 303.1930132,
+          "speed": 0.0355701
+        },
+        {
+          "name": "Pluto",
+          "longitude": 251.4547793,
+          "speed": 0.0351529
+        },
+        {
+          "name": "true Node",
+          "longitude": 123.9540228,
+          "speed": -0.0547385
+        }
+      ]
+    },
+    {
+      "date": "2100-12-31",
+      "utc_time": "12:00",
+      "positions": [
+        {
+          "name": "Sun",
+          "longitude": 279.8543191,
+          "speed": 1.0195152
+        },
+        {
+          "name": "Moon",
+          "longitude": 286.6955593,
+          "speed": 14.5923445
+        },
+        {
+          "name": "Mercury",
+          "longitude": 297.5894529,
+          "speed": 1.4186833
+        },
+        {
+          "name": "Venus",
+          "longitude": 265.1896077,
+          "speed": 1.2562797
+        },
+        {
+          "name": "Mars",
+          "longitude": 253.6512445,
+          "speed": 0.7109339
+        },
+        {
+          "name": "Jupiter",
+          "longitude": 226.9225262,
+          "speed": 0.1700268
+        },
+        {
+          "name": "Saturn",
+          "longitude": 216.9178193,
+          "speed": 0.0753272
+        },
+        {
+          "name": "Uranus",
+          "longitude": 21.7312189,
+          "speed": 0.0005238
+        },
+        {
+          "name": "Neptune",
+          "longitude": 169.5057886,
+          "speed": -0.0055345
+        },
+        {
+          "name": "Pluto",
+          "longitude": 33.3815991,
+          "speed": -0.0059569
+        },
+        {
+          "name": "true Node",
+          "longitude": 330.0237699,
+          "speed": -0.1103418
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,34 @@
+{
+  "date": "2000-01-01",
+  "utc_time": "12:00",
+  "source": "NASA JPL Horizons quantity 31: apparent geocentric ecliptic-of-date",
+  "tolerance_degrees": 0.001,
+  "independent_implementation": true,
+  "notes": "Separate JPL Horizons implementation; related underlying JPL data. Four geocentric apparent longitudes at J2000, not full-date-range validation. Remaining requests returned HTTP 503. Tolerance 0.001 degree covers reference-frame/time-model differences.",
+  "planets": [
+    {
+      "key": "jupiter",
+      "longitude": 25.2530685,
+      "raw_file": "tests/jpl/jupiter.txt",
+      "sha256": "2191f2f09950cba7b8ca1e2c543179076c56fb5d616031b439cb02a1e3ae6202"
+    },
+    {
+      "key": "mars",
+      "longitude": 327.9632921,
+      "raw_file": "tests/jpl/mars.txt",
+      "sha256": "5c759cee1b274afb101a9c40507a7eeb355e9ea4c0305e6928727ac13d0d23eb"
+    },
+    {
+      "key": "sun",
+      "longitude": 280.3689092,
+      "raw_file": "tests/jpl/sun.txt",
+      "sha256": "2ec50bc04d435d9fbc6eeef21c39263d9c8868df8d1cedaa03dad13a055b026f"
+    },
+    {
+      "key": "venus",
+      "longitude": 241.5657794,
+      "raw_file": "tests/jpl/venus.txt",
+      "sha256": "c09c1364fb07a6fcbe85b2e81f083ff83ba6fdef327b4db5e42bf961f72ce6c0"
+    }
+  ]
+}

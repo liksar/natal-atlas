@@ -1,0 +1,52 @@
+services:
+  db:
+    image: postgres:16-bookworm
+    restart: unless-stopped
+    env_file: .env
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: [CMD-SHELL, 'pg_isready -U "$${POSTGRES_USER}" -d "$${POSTGRES_DB}"']
+      interval: 5s
+      timeout: 5s
+      retries: 12
+    networks: [internal]
+  web:
+    build: .
+    restart: unless-stopped
+    env_file: .env
+    environment:
+      EPHEMERIS_PATH: /app/data/ephe
+      TRUSTED_PROXY_IPS: 172.29.0.2
+    depends_on:
+      db:
+        condition: service_healthy
+    volumes:
+      - ./data:/app/data:ro
+    networks: [internal]
+    security_opt: [no-new-privileges:true]
+    cap_drop: [ALL]
+  caddy:
+    build:
+      context: .
+      dockerfile: ops/Caddy.Dockerfile
+    restart: unless-stopped
+    env_file: .env
+    ports: ['80:80', '443:443', '443:443/udp']
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy_data:/data
+      - caddy_config:/config
+    depends_on: [web]
+    networks:
+      internal:
+        ipv4_address: 172.29.0.2
+networks:
+  internal:
+    ipam:
+      config:
+        - subnet: 172.29.0.0/24
+volumes:
+  postgres_data:
+  caddy_data:
+  caddy_config:

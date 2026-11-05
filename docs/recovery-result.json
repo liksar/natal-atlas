@@ -1,0 +1,9 @@
+{
+  "source_database": "natal",
+  "rehearsal": "new temporary PostgreSQL database",
+  "chart_revisions_compared": 1,
+  "public_tokens_identical": true,
+  "inputs_and_results_identical": true,
+  "dump_sha256": "4f6f34d364b61701046367df9f749b9fa7ad77db4d16948134ab7081cda9429f",
+  "production_shell_scripts_tested": false
+}

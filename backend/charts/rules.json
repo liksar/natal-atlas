@@ -1,0 +1,14 @@
+{
+  "version": "1.0.0",
+  "zodiac": "tropical",
+  "positions": "geocentric-apparent",
+  "ephemeris": "Swiss",
+  "house_system": "P",
+  "polar_fallback": "W",
+  "bodies": ["sun", "moon", "mercury", "venus", "mars", "jupiter", "saturn", "uranus", "neptune", "pluto", "node"],
+  "aspects": [["conjunction", 0, 8], ["sextile", 60, 4], ["square", 90, 6], ["trine", 120, 6], ["opposition", 180, 8]],
+  "aspect_body_count": 10,
+  "unknown_local_time": "12:00",
+  "uncertainty_step_minutes": 1,
+  "house_boundary": "inclusive-start-exclusive-end-in-ecliptic-longitude"
+}

@@ -1,0 +1,14 @@
+.venv/
+.tools/
+__pycache__/
+*.pyc
+.env
+*.sqlite3
+data/
+backups/
+staticfiles/
+node_modules/
+frontend/dist/
+test-results/
+*.log
+natal-atlas-data.tar.gz

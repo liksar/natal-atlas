@@ -1,0 +1,24 @@
+{
+	# Access logs are intentionally disabled; chart tokens must never be logged.
+	log default {
+		format filter {
+			wrap json
+			fields {
+				request>uri replace REDACTED
+				request>headers delete
+			}
+		}
+	}
+}
+{$DOMAIN} {
+	encode zstd gzip
+	handle_path /static/* {
+		root * /srv/static
+		file_server
+	}
+	handle {
+		reverse_proxy web:8000 {
+			header_up X-Forwarded-For {remote_host}
+		}
+	}
+}

@@ -1,0 +1,10 @@
+.git
+.env
+.venv
+.tools
+data
+backups
+*.sqlite3
+staticfiles
+frontend/node_modules
+docs/qa

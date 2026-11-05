@@ -1,0 +1,11 @@
+[Unit]
+Description=Encrypted natal atlas backup
+Requires=docker.service
+After=docker.service
+
+[Service]
+Type=oneshot
+WorkingDirectory=/opt/natal-chart
+EnvironmentFile=/etc/natal-backup.env
+ExecStart=/opt/natal-chart/ops/backup.sh
+UMask=0077

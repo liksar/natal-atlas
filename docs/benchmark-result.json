@@ -1,0 +1,17 @@
+{
+  "environment": "Local Windows development host, sequential requests, no network/TLS time",
+  "database": "django.db.backends.postgresql",
+  "exact_calculation": {
+    "samples": 50,
+    "median_ms": 4.12,
+    "p95_ms": 6.03,
+    "max_ms": 9.77
+  },
+  "stored_chart_response": {
+    "samples": 30,
+    "median_ms": 6.34,
+    "p95_ms": 7.78,
+    "max_ms": 91.89
+  },
+  "production_capacity_claim": false
+}
