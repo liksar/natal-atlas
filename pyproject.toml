@@ -11,4 +11,6 @@ dependencies = [
     "psycopg[binary]>=3.2,<4",
     "pysweph>=2.10.3.6",
     "tzdata>=2026.6",
+    "waitress>=3,<4",
+    "whitenoise>=6,<7",
 ]

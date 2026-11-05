@@ -6,7 +6,8 @@ from django.contrib.admin.views.decorators import staff_member_required
 from django.core.paginator import Paginator
 from django.db import connection, DatabaseError
 from django.db.models import Q, F
-from django.http import HttpResponse, JsonResponse, Http404
+from django.http import HttpResponse, JsonResponse, Http404, FileResponse
+from pathlib import Path
 from django.shortcuts import render, redirect, get_object_or_404
 from django.urls import reverse
 from django.utils import translation
@@ -184,3 +185,12 @@ def ready(request):
 
 def robots(request):
     return HttpResponse('User-agent: *\nDisallow: /c/\nDisallow: /admin/\n', content_type='text/plain')
+
+@require_GET
+def source_archive(request):
+    if not settings.SOURCE_ARCHIVE:
+        raise Http404
+    archive = Path(settings.SOURCE_ARCHIVE)
+    if not archive.is_file():
+        raise Http404
+    return FileResponse(archive.open('rb'), as_attachment=True, filename='natal-atlas-alpha-1-source.zip',content_type='application/zip')

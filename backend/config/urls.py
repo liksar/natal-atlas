@@ -6,6 +6,7 @@ urlpatterns = [
     path('', views.home, name='home'),
     path('c/<str:token>/', views.public_chart, name='public-chart'),
     path('i18n/', include('django.conf.urls.i18n')),
+    path('source/', views.source_archive, name='source-archive'),
     path('health/live', views.live), path('health/ready', views.ready), path('robots.txt', views.robots),
     path('admin/clients/', views.clients, name='clients'),
     path('admin/clients/new/', views.editor, name='client-new'),

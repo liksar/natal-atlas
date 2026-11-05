@@ -50,4 +50,6 @@ class SecurityMiddleware:
         if request.path.startswith(('/c/', '/admin/')):
             response['Cache-Control'] = 'private, no-store'
             response['X-Robots-Tag'] = 'noindex, nofollow, noarchive'
+        if request.path.startswith('/c/'):
+            response['Referrer-Policy'] = 'no-referrer'
         return response

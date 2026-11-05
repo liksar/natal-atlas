@@ -34,4 +34,5 @@ def context(request):
       'uk': {'country':'Країна','uncertainty_detail':'Положення, помічені в межах інтервалу часу','possible_signs':'Можливі знаки','possible_houses':'Можливі доми','variable_aspects':'Аспекти, що змінюються в межах інтервалу','exact':'Точний','approximate':'Приблизний','unknown':'Невідомий'},
       'ru': {'country':'Страна','uncertainty_detail':'Положения, отмеченные в пределах интервала времени','possible_signs':'Возможные знаки','possible_houses':'Возможные дома','variable_aspects':'Аспекты, меняющиеся в пределах интервала','exact':'Точное','approximate':'Приблизительное','unknown':'Неизвестное'}
     }
-    return {'t': {**WORDS[lang],**extra[lang]}, 'lang': lang, 'country_choices': list(countries)}
+    from django.conf import settings
+    return {'t': {**WORDS[lang],**extra[lang]}, 'lang': lang, 'country_choices': list(countries), 'release_label':settings.APP_RELEASE,'source_url':settings.SOURCE_URL}
