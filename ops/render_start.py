@@ -10,7 +10,7 @@ os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'config.render')
 import django
 django.setup()
 from django.core.management import call_command
-from django.db import connection
+from django.db import connection, transaction
 from django.contrib.auth import get_user_model
 from charts.models import City
 
@@ -21,7 +21,8 @@ try:
     manifest = root / 'data-manifests/places.json'
     version = json.loads(manifest.read_text())['dataset_version']
     if not City.objects.filter(dataset_version=version).exists():
-        call_command('import_places', manifest=str(manifest))
+        with transaction.atomic():
+            call_command('import_places', manifest=str(manifest))
     users = get_user_model()
     if not users.objects.filter(username='alpha_admin').exists():
         users.objects.create_superuser('alpha_admin', '', os.environ['ALPHA_ADMIN_PASSWORD'])
