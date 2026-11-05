@@ -19,6 +19,14 @@ Free-tier constraints: no persistent filesystem or shell; all client data is in
 PostgreSQL. Automatic application deploys are disabled. No paid disk or worker
 is provisioned. Back up PostgreSQL before a major update or database expiry.
 
-Local verification: 38 Django tests, 37 passed and one PostgreSQL-only test
-skipped with SQLite. Docker build and hosted verification must be checked in
-Render before declaring the deployment ready.
+Verification on 2026-11-05: 38 Django tests, 37 passed and one PostgreSQL-only
+test skipped with SQLite. Render Docker build succeeded. Hosted commit
+`8c07ead` passed readiness (HTTP 200), admin login, Ukrainian language selection,
+Cyrillic city lookup, chart calculation and saving, and anonymous public read.
+All 236,932 places were imported. Public HTML stays `lang="uk"` with `?lang=ru`,
+has no language selector, omits the private note, and returns private/no-store.
+
+Live admin: https://natal-atlas-alpha1.onrender.com/admin/
+Fictional demo: https://natal-atlas-alpha1.onrender.com/c/yg-DsJ9d4bNa0a6BxIAOTMikbziqkL6rVjjk27-GpwY/
+Existing local clients were not migrated; the hosted database starts separately.
+Credentials are stored only in ignored `.tools/render-alpha1-access.json`.
