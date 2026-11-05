@@ -2,6 +2,11 @@
 import os
 import sys
 import json
+import threading
+import csv
+import io
+import zipfile
+from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
 
 root = Path(__file__).resolve().parent.parent
@@ -14,13 +19,29 @@ from django.db import connection, transaction
 from django.contrib.auth import get_user_model
 from charts.models import City
 
+class Starting(BaseHTTPRequestHandler):
+    def do_GET(self):
+        self.send_response(503)
+        self.end_headers()
+        self.wfile.write(b'Preparing first deployment. Please retry shortly.')
+    def log_message(self, *args):
+        pass
+
+# Render must discover a listening port while the initial dataset is imported.
+# Readiness stays unsuccessful until bootstrap finishes.
+starting = ThreadingHTTPServer(('0.0.0.0', int(os.environ.get('PORT', '10000'))), Starting)
+threading.Thread(target=starting.serve_forever, daemon=True).start()
+
 with connection.cursor() as cursor:
     cursor.execute('SELECT pg_advisory_lock(72165001)')
 try:
     call_command('migrate', interactive=False)
     manifest = root / 'data-manifests/places.json'
-    version = json.loads(manifest.read_text())['dataset_version']
-    if not City.objects.filter(dataset_version=version).exists():
+    info = json.loads(manifest.read_text())
+    version = info['dataset_version']
+    with zipfile.ZipFile(root / info['archive']) as zipped, zipped.open(info['member']) as stream:
+        expected = sum(1 for row in csv.reader(io.TextIOWrapper(stream, encoding='utf-8'), delimiter='\t') if len(row) >= 19 and row[17])
+    if City.objects.filter(dataset_version=version).count() != expected:
         with transaction.atomic():
             call_command('import_places', manifest=str(manifest))
     users = get_user_model()
@@ -31,6 +52,8 @@ finally:
     with connection.cursor() as cursor:
         cursor.execute('SELECT pg_advisory_unlock(72165001)')
     connection.close()
+starting.shutdown()
+starting.server_close()
 os.chdir(root / 'backend')
 os.execvp('gunicorn', ['gunicorn', 'config.wsgi:application', '--bind',
                       '0.0.0.0:' + os.environ.get('PORT', '10000'),
